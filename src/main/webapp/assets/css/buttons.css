@@ -1,0 +1,36 @@
+@import url('https://fonts.googleapis.com/css2?family=Crimson+Pro:ital,wght@0,200..900;1,200..900&display=swap');
+
+.rounded-button {
+    font-size: 20px;
+    width: 40px; /* Задайте желаемую ширину */
+    height: 40px; /* Задайте желаемую высоту */
+    border-radius: 10px; /* Задайте радиус скругления углов */
+    background-color: #fc1d63;
+    color: #ffffff;
+    font-family: "Crimson Pro";
+    font-weight: 500;
+    transition-duration: 0.4s;
+    margin-right: 3px; /* Задайте отступ между кнопками */
+    margin-left: 3px;
+}
+
+.rounded-button:hover {
+    background-color: #7397f3;
+    color: #ffffff;
+    box-shadow: 0 12px 16px 0 rgba(0, 0, 0, 0.24), 0 17px 50px 0 rgba(0, 0, 0, 0.19);
+}
+
+.button {
+    height: 60px;
+    width: 120px;
+    border: #1d3bfc;
+    border-radius: 5px;
+    font-family: "Crimson Pro";
+    font-weight: bold;
+    font-size: 20px;
+    background-color: rgba(252, 29, 99, 0.29);
+}
+
+
+
+

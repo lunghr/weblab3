@@ -1,0 +1,17 @@
+@import url('https://fonts.googleapis.com/css2?family=Crimson+Pro:ital,wght@0,200..900;1,200..900&display=swap');
+
+#results-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 450px;
+    font-family: "Crimson Pro";
+}
+
+#results-table th, #results-table td {
+    border: 1px solid black;
+    padding: 8px;
+    text-align: center;
+}
+
+
+

@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://primefaces.org/ui ">
+
+<h:head>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <link rel="stylesheet" href="assets/css/main.css"/>
+    <link rel="stylesheet" href="assets/css/buttons.css"/>
+    <link rel="stylesheet" href="assets/css/table.css"/>
+
+    <title>main lab3</title>
+    <h:outputScript src="https://cdn.jsdelivr.net/npm/jsxgraph/distrib/jsxgraphcore.js" type="text/javascript"
+                    charset="UTF-8"/>
+</h:head>
+
+<h:body>
+    <header class="header">
+        <h1> Mila T. P3209 95764</h1>
+    </header>
+
+    <div class="container">
+
+        <div class="form">
+            <h:form id="user-request">
+                <h:outputLabel for="x" value="X"/>
+
+
+                <h:commandButton value="-3" ajax="true" update="x" action="#{client.updateXWithValue(-3)}"
+                                 styleClass="rounded-button" >
+                    <p:ajax update="x"/>
+                    <f:ajax event="click" listener="#{client.updateXWithValue(-3)}"/>
+                </h:commandButton>
+                <h:commandButton value="-2" ajax="true" update="x" action="#{client.updateXWithValue(-2)}"
+                                 styleClass="rounded-button">
+                    <p:ajax update="x"/>
+                    <f:ajax event="click" listener="#{client.updateXWithValue(-2)}"/>
+                </h:commandButton>
+                <h:commandButton value="-1" ajax="true" update="x" action="#{client.updateXWithValue(-1)}"
+                                 styleClass="rounded-button " >
+                    <p:ajax update="x"/>
+                    <f:ajax event="click" listener="#{client.updateXWithValue(-1)}"/>
+                </h:commandButton>
+
+                <h:commandButton value="0" ajax="true" update="x" action="#{client.updateXWithValue(0)}"
+                                 styleClass="rounded-button" >
+                    <p:ajax update="x"/>
+                    <f:ajax event="click" listener="#{client.updateXWithValue(0)}"/>
+                </h:commandButton>
+                <h:commandButton value="1" ajax="true" update="x" action="#{client.updateXWithValue(1)}"
+                                 styleClass="rounded-button">
+                    <p:ajax update="x"/>
+                    <f:ajax event="click" listener="#{client.updateXWithValue(1)}"/>
+                </h:commandButton>
+                <h:commandButton value="2" ajax="true" update="x" action="#{client.updateXWithValue(2)}"
+                                 styleClass="rounded-button">
+                    <p:ajax update="x"/>
+                    <f:ajax event="click" listener="#{client.updateXWithValue(2)}"/>
+                </h:commandButton>
+
+                <h:commandButton value="3" ajax="true" update="x" action="#{client.updateXWithValue(3)}"
+                                 styleClass="rounded-button">
+                    <p:ajax update="x"/>
+                    <f:ajax event="click" listener="#{client.updateXWithValue(3)}"/>
+                </h:commandButton>
+                <h:commandButton value="4" ajax="true" update="x" action="#{client.updateXWithValue(4)}"
+                                 styleClass="rounded-button">
+                    <p:ajax update="x"/>
+                    <f:ajax event="click" listener="#{client.updateXWithValue(4)}"/>
+                </h:commandButton>
+                <h:commandButton value="5" ajax="true" update="x" action="#{client.updateXWithValue(5)}"
+                                 styleClass="rounded-button">
+                    <p:ajax update="x"/>
+                    <f:ajax event="click" listener="#{client.updateXWithValue(5)}"/>
+                </h:commandButton>
+
+                <p>
+                    <h:outputLabel for="y" value="Y"/>
+                    <p:inputText
+                            id="y"
+                            value="#{client.coordinates.y}"
+                            required="true"
+                            converterMessage="It should be a number"
+                            requiredMessage="This is a necessary parameter"
+                            placeholder="0">
+                        <f:validator validatorId="formValidator" for="y"/>
+                    </p:inputText>
+                    <h:message for="y" styleClass="error"/>
+                </p>
+
+                <p>
+                    <h:outputLabel for="r" value="R:"/>
+
+                    <h:commandButton value="1" ajax="true" update="r" action="#{client.updateRWithValue(1)}"
+                                     styleClass="rounded-button" onclick="updateR(1)">
+                        <p:ajax update="r"/>
+                        <f:ajax event="click" listener="#{client.updateRWithValue(1)}"/>
+                    </h:commandButton>
+                    <h:commandButton value="2" ajax="true" update="r" action="#{client.updateRWithValue(2)}"
+                                     styleClass="rounded-button" onclick="updateR(2)">
+                        <p:ajax update="r"/>
+                        <f:ajax event="click" listener="#{client.updateRWithValue(2)}"/>
+                    </h:commandButton>
+                    <h:commandButton value="3" ajax="true" update="r" action="#{client.updateRWithValue(3)}"
+                                     styleClass="rounded-button" onclick="updateR(3)">
+                        <p:ajax update="r"/>
+                        <f:ajax event="click" listener="#{client.updateRWithValue(3)}"/>
+                    </h:commandButton>
+                    <h:commandButton value="4" ajax="true" update="r" action="#{client.updateRWithValue(4)}"
+                                     styleClass="rounded-button" onclick="updateR(4)">
+                        <p:ajax update="r"/>
+                        <f:ajax event="click" listener="#{client.updateRWithValue(4)}"/>
+                    </h:commandButton>
+                    <h:commandButton value="5" ajax="true" update="r" action="#{client.updateRWithValue(5)}"
+                                     styleClass="rounded-button" onclick="updateR(5)">
+                        <p:ajax update="r"/>
+                        <f:ajax event="click" listener="#{client.updateRWithValue(5)}"/>
+                    </h:commandButton>
+
+
+                    <h:message for="r" styleClass="error"/>
+                </p>
+
+
+                <h:commandButton value="check!" action="#{client.makeRemoteRequest}" styleClass="button"/>
+
+                <div id="result_div">
+                    <h:outputText id="x" value="#{client.coordinates.x}" />
+                    <h:outputText id="r" value="#{client.coordinates.r}" />
+                </div>
+
+<!--                <div id="r-error">-->
+<!--                    <h:outputText id="empty-r-value" value="Choose a radius!!!"/>-->
+<!--                </div>-->
+
+            </h:form>
+            <h:form styleClass="navigate">
+                <h:commandButton action="navigateStart" styleClass="button" value="to start page"/>
+            </h:form>
+
+
+            <p:remoteCommand name="addDotFromCanvas" action="#{client.makeCanvasRequest()}" update="results-table"
+                             oncomplete=" drawPointsFromTable()"/>
+
+        </div>
+
+        <div class="graph-canvas">
+            <canvas width="530" height="530" id="coordinateCanvas">
+            </canvas>
+        </div>
+        <!--
+           Table with previous hits
+        -->
+        <!--                         columnClasses="x-column,y-column,r-column,time-column,res-column"-->
+        <div id="circle"></div>
+        <div class="tablichka">
+            <p:dataTable id="results-table" value="#{client.currentHits}" var="hit"
+                         widgetVar="results-tableWidget"
+                         sortMode="single"
+                         editable="true">
+                <p:column>
+                    <f:facet name="header">X</f:facet>
+                    <h:outputText value="#{hit.x}"/>
+                </p:column>
+                <p:column>
+                    <f:facet name="header">Y</f:facet>
+                    <h:outputText value="#{hit.y}"/>
+                </p:column>
+                <p:column>
+                    <f:facet name="header">R</f:facet>
+                    <h:outputText value="#{hit.r}"/>
+                </p:column>
+                <p:column>
+                    <f:facet name="header">Current Time</f:facet>
+                    <h:outputText value="#{hit.currentTime}"/>
+                </p:column>
+                <p:column>
+                    <f:facet name="header">Result</f:facet>
+                    <h:outputText value="#{hit.result ? 'kill' : 'miss'}"
+                                  style="#{hit.result ? 'color: green;' : 'color: red;'}"/>
+                </p:column>
+
+            </p:dataTable>
+
+        </div>
+
+
+    </div>
+
+    <h:outputScript library="js" name="graph.js"></h:outputScript>
+
+
+</h:body>
+
+</html>

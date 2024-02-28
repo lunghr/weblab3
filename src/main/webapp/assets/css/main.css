@@ -1,0 +1,52 @@
+@import url('https://fonts.googleapis.com/css2?family=Crimson+Pro:ital,wght@0,200..900;1,200..900&display=swap');
+
+body {
+    background: whitesmoke;
+    font-family: "Crimson Pro";
+}
+
+#circle {
+    width: 600px;
+    height: 600px;
+    background-color: #1d3bfc; /* Цвет круга */
+    border-radius: 50%; /* Делаем круг с помощью радиуса границы */
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: -1; /* Перемещаем на задний план */
+    filter: blur(100px); /* Размытие границ круга */
+}
+
+
+header {
+    margin-top: 25px;
+    margin-left: 50px;
+    color: rgb(40, 58, 91);
+    ont-family: "Crimson Pro";
+    font-size: 20px;
+}
+
+
+.graph-canvas {
+    position: absolute;
+    top: 43%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+
+.navigate {
+    display: flex;
+    justify-content: left;
+    margin-top: 3%;
+
+}
+
+.container {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    margin-left: 2%;
+}
+
